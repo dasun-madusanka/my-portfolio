@@ -1,15 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
-import {
-  Box,
-  Divider,
-  Typography,
-  Button,
-  useTheme,
-  IconButton,
-} from "@mui/material";
-import SliderComponent from "./Slider";
+import { Box, Typography, useTheme, IconButton, Divider } from "@mui/material";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import { BarChart } from "@mui/x-charts/BarChart";
+import Icon from "@mui/material/Icon"; // Import Icon component
 import cLogo from "../assets/images/cLogo.png";
 import cppLogo from "../assets/images/cppLogo.png";
 import javaLogo from "../assets/images/javaLogo.webp";
@@ -26,29 +20,29 @@ import ghLogo from "../assets/images/ghLogo.png";
 import gitLogo from "../assets/images/gitLogo.png";
 
 const ProgrammingLanguages = [
-  { img: cLogo, language: "C", value: 90 },
-  { img: cppLogo, language: "C++", value: 80 },
-  { img: javaLogo, language: "Java", value: 88 },
+  { img: cLogo, language: "C", value: 90, color: "#FF5722" },
+  { img: cppLogo, language: "C++", value: 80, color: "#FF5722" },
+  { img: javaLogo, language: "Java", value: 88, color: "#FF5722" },
 ];
 
 const WebTechnologies = [
-  { img: htmlLogo, language: "html", value: 97 },
-  { img: cssLogo, language: "css", value: 93 },
-  { img: jsLogo, language: "js", value: 87 },
-  { img: tsLogo, language: "ts", value: 82 },
-  { img: reactLogo, language: "react", value: 91 },
-  { img: nestLogo, language: "nest", value: 89 },
+  { img: htmlLogo, language: "HTML", value: 97, color: "#FF5722" },
+  { img: cssLogo, language: "CSS", value: 93, color: "#FF5722" },
+  { img: jsLogo, language: "JavaScript", value: 87, color: "#FF5722" },
+  { img: tsLogo, language: "TypeScript", value: 82, color: "#FF5722" },
+  { img: reactLogo, language: "React", value: 91, color: "#FF5722" },
+  { img: nestLogo, language: "NestJS", value: 89, color: "#FF5722" },
 ];
 
 const DbTechnologies = [
-  { img: mysqlLogo, language: "MySQL", value: 90 },
-  { img: pgLogo, language: "PostgreSQL", value: 96 },
-  { img: mongoLogo, language: "MongoDB", value: 77 },
+  { img: mysqlLogo, language: "MySQL", value: 90, color: "#FF5722" },
+  { img: pgLogo, language: "PostgreSQL", value: 96, color: "#FF5722" },
+  { img: mongoLogo, language: "MongoDB", value: 77, color: "#FF5722" },
 ];
 
 const VersionControlTechnologies = [
-  { img: gitLogo, language: "Git", value: 90 },
-  { img: ghLogo, language: "GitHub", value: 96 },
+  { img: gitLogo, language: "Git", value: 90, color: "#FF5722" },
+  { img: ghLogo, language: "GitHub", value: 96, color: "#FF5722" },
 ];
 
 export default function TechSkills() {
@@ -69,9 +63,7 @@ export default function TechSkills() {
       ([entry]) => {
         setIsVisible(entry.isIntersecting);
       },
-      {
-        threshold: 0.3,
-      }
+      { threshold: 0.3 }
     );
 
     if (sectionRef.current) {
@@ -98,6 +90,11 @@ export default function TechSkills() {
   };
 
   const currentSection = sections[currentIndex];
+
+  const chartSettings = {
+    xAxis: [{ label: "Proficiency" }],
+    layout: "horizontal",
+  };
 
   return (
     <Box
@@ -129,7 +126,7 @@ export default function TechSkills() {
         </span>
       </Typography>
 
-      {/* Display the current section */}
+      {/* Display the current section with Bar Chart */}
       <Box sx={{ width: "100%", display: "flex", justifyContent: "center" }}>
         <Box
           sx={{
@@ -143,74 +140,85 @@ export default function TechSkills() {
             <ArrowBackIosIcon />
           </IconButton>
         </Box>
+
         <Box
           sx={{
             width: "80%",
             display: "flex",
+            flexDirection: "column",
             alignItems: "center",
             padding: 2,
             marginBottom: 2,
             gap: 1,
           }}
         >
-          <Box sx={{ width: "35%" }}>
-            <Typography
-              variant="h6"
-              sx={{ fontSize: "1rem", textAlign: "center" }}
-            >
-              {currentSection.title}
-            </Typography>
-          </Box>
-          <Divider orientation="vertical" flexItem />
-          <Box
-            sx={{
-              width: "60%",
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              justifyContent: "center",
-              paddingLeft: 5,
-            }}
-          >
-            {currentSection.data.map((data, index) => (
+          <Typography variant="h6" sx={{ fontSize: "1rem", textAlign: "center" }}>
+            {currentSection.title}
+          </Typography>
+
+          <Divider orientation="horizontal" flexItem />
+
+          <BarChart
+            dataset={currentSection.data.map((item, index) => ({
+              label: item.language,
+              value: item.value,
+              color: item.color,
+            }))}
+            yAxis={[{ scaleType: "band", dataKey: "label" }]}
+            series={[
+              {
+                dataKey: "value",
+                label: "Proficiency",
+                color: theme.palette.primary.main, // Add colors for bars
+                // marginLeft: 10,
+              },
+            ]}
+            style={{ width: "100%", height: "300px" }}
+            {...chartSettings}
+            borderRadius={10}
+            color="#fff"
+            barLabel="value"
+            // label={{ position: "end" }}
+            // margin={{ top: 20, right: 20, bottom: 20, left: 20 }}
+            padding={0.2}
+          />
+
+          {/* Custom Legend with Icons */}
+          <Box sx={{ display: "flex", justifyContent: "center", marginTop: 2 }}>
+            {currentSection.data.map((item, index) => (
               <Box
                 key={index}
-                sx={{ width: "100%", display: "flex", gap: 2, padding: 1 }}
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  margin: 1,
+                }}
               >
-                <Box sx={{ width: "40px", height: "auto" }}>
-                  <Box
-                    sx={{
-                      width: "30px",
-                      height: "30px",
-                      backgroundImage: `url(${data.img})`,
-                      backgroundSize: "cover",
-                    }}
-                  ></Box>
-                </Box>
-                <SliderComponent value={data.value} isVisible={isVisible} />
-                <Typography variant="subtitle1">{data.value + "%"}</Typography>
+                <Icon sx={{ color: item.color, fontSize: 24 }}>
+                  {/* Use Material Icons or SVGs here */}
+                  <img src={item.img} alt={item.language} style={{ width: 24, height: 24 }} />
+                </Icon>
+                <Typography variant="body2" sx={{ marginLeft: 1 }}>
+                  {item.language}
+                </Typography>
               </Box>
             ))}
           </Box>
         </Box>
 
         <Box
-        sx={{
-          width: "10%",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <IconButton onClick={handleNext}>
-          <ArrowForwardIosIcon />
-        </IconButton>
+          sx={{
+            width: "10%",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <IconButton onClick={handleNext}>
+            <ArrowForwardIosIcon />
+          </IconButton>
+        </Box>
       </Box>
-      </Box>
-
-      
-
-      {/* Navigation buttons */}
     </Box>
   );
 }
