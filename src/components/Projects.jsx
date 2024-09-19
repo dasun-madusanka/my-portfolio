@@ -1,35 +1,42 @@
 import React, { useRef, useState, useEffect } from "react";
 import { Box, Typography, useTheme } from "@mui/material";
 import SingleProject from "./SingleProject";
-import hw from "../assets/images/hw.png";
-import plazer from "../assets/images/plazer.png";
-import anythink from "../assets/images/anythink.png";
-import ayurva from "../assets/images/ayurva.png";
+import hwg from "../assets/images/hwg.png";
+import sathkara from "../assets/images/sathkara.png";
+import cowbox from "../assets/images/cowbox.jpeg";
+import hw from "../assets/images/hw.jpeg";
+import internify from "../assets/images/internify.jpg";
 
 // Project data
 const ProjectData = [
   {
+    project_img: hwg,
+    project_title: "HearWeGo",
+    project_description: "Web application provides a platform to manage songs, albums, events, fan clubs, press and PR campaigns of artists and provides facility of hit prediction of a song.",
+    status: "Done",
+  },
+  {
+    project_img: sathkara,
+    project_title: "Sathkara App",
+    project_description: "Web application that provides facility to find medicines and allows to contact the medicine owners. Users can add posts if they have medicines.",
+    status: "Done",
+  },
+  {
+    project_img: cowbox,
+    project_title: "Cow Box",
+    project_description: "Web application that provides facility to express for the voters to express their vote to the electoral candidates. And it allows to manage the parties of the electoral candidates.",
+    status: "Done",
+  },
+  {
     project_img: hw,
-    project_title: "Plant Growth Chamber",
-    project_description: "An innovative process let the seeds to grow in a controlled and sealed environment by controlling the atmosphere around the plants.",
-    status: "Done",
-  },
-  {
-    project_img: plazer,
-    project_title: "Plazer Multi Service Web Portal",
-    project_description: "A multi-service web platform which provides users to access different kind of web application services at same place using the same login credentials.",
-    status: "Done",
-  },
-  {
-    project_img: anythink,
-    project_title: "AnyThink",
-    project_description: "A mobile app that allows the user to manage his/her day-to-day work, manage his/her budget, maintain a personal diary, and manage important notes and documents. Users can also periodically get budget and task analysis to measure their performance.",
+    project_title: "Coco-Smoothie Maker",
+    project_description: "Arduino project that allows to make fruit juice using coconut water automatically. It automates the full process of making smoothie. ",
     status: "Ongoing",
   },
   {
-    project_img: ayurva,
-    project_title: "Ayurva",
-    project_description: "A mobile responsive web platform helps the user to find the required medicine with the aid of a prescription. Users can order the required medicine from the nearest pharmacies which are registered on the platform.",
+    project_img: internify,
+    project_title: "Internify",
+    project_description: "Web application that provides facility students to upload their CVs and apply for the internships",
     status: "Ongoing",
   },
 ];
@@ -76,7 +83,7 @@ export default function Projects() {
       ref={ref}
     >
       <Typography variant="h4" sx={{ textAlign: "center", fontWeight: 550 }}>
-        What have I Done
+        What have I Contributed to ?
       </Typography>
 
       <Typography variant="h5" sx={{ marginBottom: 3 }}>
@@ -94,11 +101,13 @@ export default function Projects() {
 
       <Box
         sx={{
-          width: "100%",
+          maxWidth: "100%",
           display: "flex",
           flexDirection: "row",
           justifyContent: "center",
           flexWrap: "wrap",
+          gap: 8,
+          padding: 2
         }}
       >
         {ProjectData.map((project, index) => (

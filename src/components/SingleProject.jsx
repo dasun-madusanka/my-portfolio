@@ -8,7 +8,9 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import DoneIcon from '@mui/icons-material/Done';
 import AutorenewIcon from '@mui/icons-material/Autorenew';
+import { Info, InfoEyebrow, InfoSubtitle, InfoTitle } from "./info-basic";
 import { keyframes } from "@mui/system";
+// import { Info}
 import { Chip } from "@mui/material";
 
 // Define the zoom-in animation
@@ -57,38 +59,106 @@ export default function SingleProject({
 
   return (
     <Card
-      sx={{
-        width: 345,
-        m: 1,
+      sx={(theme) => ({
+        margin: 0,
+        borderRadius: theme.spacing(2), // 16px
+        transition: "0.3s",
+        boxShadow: "0px 14px 80px rgba(34, 35, 58, 0.2)",
+        position: "relative",
+        maxWidth: 500,
+        // marginLeft: "auto",
+        overflow: "initial",
+        // background: "#ffffff",
         display: "flex",
         flexDirection: "column",
-        justifyContent: "space-between",
-        opacity: isVisible ? 1 : 0,
-        animation: isVisible ? `${zoomIn} 1s ease-out` : "none",
-        ...style, // Apply additional styles passed via props
-      }}
-      ref={ref}
+        alignItems: "center",
+        paddingBottom: theme.spacing(2),
+        [theme.breakpoints.up("md")]: {
+          flexDirection: "row",
+          paddingTop: theme.spacing(2),
+        },
+      })}
     >
-      <CardMedia sx={{ height: 140 }} image={project_img} title="project" />
+      <CardMedia
+        image={
+          project_img
+        }
+        sx={(theme) => ({
+          minWidth: "200px",
+          marginLeft: "auto",
+          marginRight: "auto",
+          marginTop: theme.spacing(-3),
+          maxHeight: "200px",
+          paddingBottom: "48%",
+          borderRadius: theme.spacing(2),
+          backgroundColor: "#fff",
+          position: "relative",
+          [theme.breakpoints.up("md")]: {
+            width: "100%",
+            marginLeft: theme.spacing(-3),
+            marginTop: 0,
+            transform: "translateX(-8px)",
+          },
+          "&:after": {
+            content: '" "',
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            // backgroundImage: "linear-gradient(147deg, #fe8a39 0%, #fd3838 74%)",
+            borderRadius: theme.spacing(2), // 16
+            opacity: 0.5,
+          },
+        })}
+      />
       <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-          {project_title}
-        </Typography>
-        <Typography variant="body2" sx={{ color: "text.secondary" }}>
-          {project_description}
-        </Typography>
+        <Info
+          useStyles={(theme) => {
+            const family =
+              "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif";
+            return {
+              eyebrow: {
+                textTransform: "uppercase",
+                letterSpacing: "1px",
+                fontSize: 12,
+                marginBottom: "0.875em",
+                display: "inline-block",
+              },
+              title: {
+                fontSize: 20,
+                fontWeight: "bold",
+                marginBottom: "0.35em",
+                fontFamily: family,
+              },
+              subtitle: {
+                marginBottom: theme.spacing(2),
+                fontSize: "0.8rem",
+                letterSpacing: "0.00938em",
+                fontFamily: family,
+              },
+            };
+          }}
+        >
+          {/* <InfoEyebrow>28 MAR 2019</InfoEyebrow> */}
+          <InfoTitle>{project_title}</InfoTitle>
+          <InfoSubtitle>
+            {project_description}
+          </InfoSubtitle>
+        </Info>
+        <Button
+          sx={{
+            backgroundImage: "linear-gradient(147deg, #6d28d9 0%, #4338ca 74%)",
+            boxShadow: "0px 4px 32px rgba(109, 40, 217, 0.6)",
+            borderRadius: 100,
+            paddingLeft: 3,
+            paddingRight: 3,
+            color: "#ffffff",
+          }}
+        >
+          Read more
+        </Button>
       </CardContent>
-
-      <Box
-        sx={{ maxWidth: "100%", display: "flex", justifyContent: "space-between", p: 3 }}
-      >
-        <Button size="small">Explore More</Button>
-        <Button size="small" startIcon={(status === "Done")? <DoneIcon />: <AutorenewIcon />}  variant="outlined" sx={{borderRadius: "50px"}} disabled>{status=="Done"? "Done": "Ongoing"}</Button>
-        {/* <Chip label="React" color="error" /> */}
-      </Box>
-      {/* <CardActions sx={{ display: 'flex', justifyContent: 'space-between' }}>
-        
-      </CardActions> */}
     </Card>
   );
 }

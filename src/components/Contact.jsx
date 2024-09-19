@@ -1,7 +1,57 @@
 import React from "react";
 import { Box, Button, Paper, TextField, Typography, useTheme } from "@mui/material";
+import { PiPhoneCallFill } from "react-icons/pi";
 import SendIcon from "@mui/icons-material/Send";
+import { IoIosCall } from "react-icons/io";
+import { FaLinkedin } from "react-icons/fa";
+import { MdEmail } from "react-icons/md";
+import { FaWhatsappSquare } from "react-icons/fa";
+import { FaFacebook } from "react-icons/fa";
+import { AiFillInstagram } from "react-icons/ai";
+import { FaLocationDot } from "react-icons/fa6";
+import { SingleContact } from "./SingleContact";
 import Map from "./Map";
+
+const contactStyles = { fontSize: 83, width: "100%" };
+
+const contacts = [
+  {
+    icon: <IoIosCall style={contactStyles} />,
+    title: "Call Me",
+    value: "+94 77 918 4997",
+    link: "tel:+94779184997",
+  },
+  {
+    icon: <MdEmail style={contactStyles} />,
+    title: "E-mail Me",
+    value: <span style={{fontSize: "10px"}}>dasunmadusanka7890@gmail.com</span>,
+    link: "mailto:dasunmadusanka7890@gmail.com",
+  },
+  {
+    icon: <FaWhatsappSquare style={contactStyles} />,
+    title: "Whatsapp",
+    value: "dasun-madusanka",
+    link: "https://www.linkedin.com/in/dasun-madusanka-aab971265/",
+  },
+  {
+    icon: <FaFacebook style={contactStyles} />,
+    title: "Facebook",
+    value: "+94 77 918 4997",
+    link: "tel:+94779184997",
+  },
+  {
+    icon: <AiFillInstagram style={contactStyles} />,
+    title: "Instagram",
+    value: <span style={{fontSize: "10px"}}>dasunmadusanka7890@gmail.com</span>,
+    link: "mailto:dasunmadusanka7890@gmail.com",
+  },
+  {
+    icon: <FaLocationDot style={contactStyles} />,
+    title: "I'm Here",
+    value: "dasun-madusanka",
+    link: "https://www.linkedin.com/in/dasun-madusanka-aab971265/",
+  },
+];
 
 export default function Contact() {
   const theme = useTheme();
@@ -33,21 +83,25 @@ export default function Contact() {
         </span>
       </Typography>
 
-      <Box sx={{width: "100%", display: "flex", flexWrap: "wrap"}}>
-          <Box sx={{width: {xs: "100%", sm: "100%", md: "500px"}, display: "flex", flexDirection: "column", gap: 2, ml: 5, mr: 5, p: {xs: 2, sm: 2, md: 10} }}>
-            <TextField label="Your Name" variant="outlined" sx={{borderRadius: "50px", zIndex: 0}} />
-            <TextField label="Your Mobile Number" variant="outlined" sx={{borderRadius: "50px", zIndex: 0}} />
-            <TextField label="Your E-mail" variant="outlined" sx={{borderRadius: "50px", zIndex: 0}} />
-            <TextField label="Message" rows={5} multiline variant="outlined" sx={{borderRadius: "50px", zIndex: 0}} />
-            <Box sx={{width: "100%", display: "flex", justifyContent: "end"}}>
-                <Button variant="contained" endIcon={<SendIcon />} sx={{borderRadius: "50px", width: "150px", height: "50px"}}>Send</Button>
-                </Box>
-          </Box>
-
-          <Box sx={{width: {xs: "100%", sm: "100%", md: "500px"}, height: {xs: "300px", sm: "300px", md: "500px"}, p: {xs: 2, sm: 2, md: 10}, ml: 5, mr: 5}}>
-          <Map />   
-          </Box>
-        
+      <Box
+        sx={{
+          width: "100%",
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "center",
+          flexWrap: "wrap",
+          gap: 2,
+        }}
+      >
+        {contacts.map((contact, index) => (
+          <SingleContact
+            key={index}
+            icon={contact.icon}
+            title={contact.title}
+            value={contact.value}
+            link={contact.link}
+          />
+        ))}
       </Box>
     </Box>
   );

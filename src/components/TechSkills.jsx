@@ -176,7 +176,7 @@ export default function TechSkills() {
             style={{ width: "100%", height: "300px" }}
             {...chartSettings}
             borderRadius={10}
-            color="#fff"
+            // color="#fff"
             barLabel="value"
             // label={{ position: "end" }}
             // margin={{ top: 20, right: 20, bottom: 20, left: 20 }}
