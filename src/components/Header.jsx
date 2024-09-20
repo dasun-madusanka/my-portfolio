@@ -17,28 +17,35 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import AdbIcon from "@mui/icons-material/Adb";
 import PropTypes from "prop-types";
-import { Link } from 'react-scroll';
-import { useNavigate } from 'react-router-dom';
+import { Link } from "react-scroll";
+import { useNavigate } from "react-router-dom";
 import { useTheme } from "@mui/material";
 import { ColorModeContext } from "../context/ThemeContext";
 import LightModeIcon from "@mui/icons-material/LightMode";
-import AssignmentIcon from '@mui/icons-material/Assignment';
+import AssignmentIcon from "@mui/icons-material/Assignment";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import logo2 from "../assets/images/logo2.png";
 import logolight from "../assets/images/logolight.png";
 import logodark from "../assets/images/logodark.png";
 
-const pages = ["Intro", "Soft Skills", "Technical Skills", "Projects", "Contact"];
+const pages = [
+  "Intro",
+  "Soft Skills",
+  "Technical Skills",
+  "Projects",
+  "Achievements",
+  "Education",
+  "Contact",
+];
 const drawerWidth = 240;
 const handleClick = () => {
   try {
-    window.location.href = 'https://drive.google.com/file/d/1Ud47VII5n5FIO1LckGfOquuvftjkN1iL/view?usp=drive_link';
+    window.location.href =
+      "https://drive.google.com/file/d/1s_mw3dafTFGc6KI1IBv_qUW4kgynw3TS/view?usp=drive_link";
   } catch (error) {
-    console.error('Error setting location:', error);
+    console.error("Error setting location:", error);
   }
 };
-
-
 
 function Header(props) {
   const navigate = useNavigate();
@@ -58,14 +65,18 @@ function Header(props) {
       <List>
         {pages.map((item) => (
           <ListItem key={item} disablePadding>
-            <ListItemButton sx={{ textAlign: 'center' }}>
+            <ListItemButton sx={{ textAlign: "center" }}>
               <Link
                 to={item}
                 spy={true}
                 smooth={true}
                 offset={-70}
                 duration={500}
-                style={{ width: '100%', textDecoration: 'none', color: 'inherit' }}
+                style={{
+                  width: "100%",
+                  textDecoration: "none",
+                  color: "inherit",
+                }}
               >
                 <ListItemText primary={item} />
               </Link>
@@ -87,10 +98,11 @@ function Header(props) {
       <AppBar
         position="static"
         sx={{
-          backgroundColor: theme.palette.mode === "light" ? "#ffffff" : "#000000",
+          backgroundColor:
+            theme.palette.mode === "light" ? "#ffffff" : "#000000",
           color: theme.palette.mode === "light" ? "#000000" : "#ffffff",
           position: "fixed",
-          zIndex: 1,
+          zIndex: 10,
           boxShadow: "none",
         }}
         src={logo2}
@@ -144,24 +156,24 @@ function Header(props) {
                 display: { xs: "flex", md: "none" },
                 flexGrow: 1,
                 color: "#007F73",
-            fontFamily: "Brush Script MT",
+                fontFamily: "Brush Script MT",
                 // fontWeight: 700,
                 // letterSpacing: ".3rem",
                 textDecoration: "none",
               }}
             >
               <Avatar
-              alt="Remy Sharp"
-              src={theme.palette.mode === "light" ? logolight : logodark}
-              sx={{
-                // display: { xs: "none", md: "flex" },
-                width: 100,
-                height: 100,
-              }}
-            />
+                alt="Remy Sharp"
+                src={theme.palette.mode === "light" ? logolight : logodark}
+                sx={{
+                  // display: { xs: "none", md: "flex" },
+                  width: 100,
+                  height: 100,
+                }}
+              />
             </Typography>
             <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            {pages.map((page) => (
+              {pages.map((page) => (
                 <Link
                   key={page}
                   to={page}
@@ -169,17 +181,30 @@ function Header(props) {
                   smooth={true}
                   offset={-70}
                   duration={500}
-                  style={{ marginRight: 2, textDecoration: 'none', color: 'inherit' }}
+                  style={{
+                    marginRight: 2,
+                    textDecoration: "none",
+                    color: "inherit",
+                  }}
                 >
-                  <Button sx={{ my: 2, color: 'inherit', display: 'block' }}>
+                  <Button sx={{ my: 2, color: "inherit", display: "block" }}>
                     {page}
                   </Button>
                 </Link>
               ))}
             </Box>
             <Box sx={{ flexGrow: 0, display: "flex", alignItems: "center" }}>
-              
-              <Button variant="contained" color="secondary" onClick={handleClick} sx={{borderRadius: "50px"}}>
+              <Button
+                variant="contained"
+                color="secondary"
+                onClick={handleClick}
+                sx={{
+                  borderRadius: "50px",
+                  backgroundImage:
+                    "linear-gradient(147deg, #6d28d9 0%, #4338ca 74%)",
+                  boxShadow: "0px 4px 32px rgba(109, 40, 217, 0.6)",
+                }}
+              >
                 {/* {xs: "", sm: "", md: "Download CV"} */}
                 Download CV
               </Button>

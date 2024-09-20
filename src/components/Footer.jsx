@@ -18,7 +18,7 @@ export default function Footer() {
       }}
     >
       <Typography variant="subtitle1">
-        © 2024 - Developed by Sandani Thathsarani
+        © 2024 - Developed by Dasun Madusanka
       </Typography>
     </Box>
   );

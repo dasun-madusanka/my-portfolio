@@ -30,14 +30,14 @@ const contacts = [
   {
     icon: <FaWhatsappSquare style={contactStyles} />,
     title: "Whatsapp",
-    value: "dasun-madusanka",
-    link: "https://www.linkedin.com/in/dasun-madusanka-aab971265/",
+    value: "+94779184997",
+    link: "https://wa.me/94779184997",
   },
   {
     icon: <FaFacebook style={contactStyles} />,
     title: "Facebook",
-    value: "+94 77 918 4997",
-    link: "tel:+94779184997",
+    value: "Dasun Madusanka",
+    link: "https://www.facebook.com/dasun.wanasinghe?mibextid=ZbWKwL",
   },
   {
     icon: <AiFillInstagram style={contactStyles} />,
@@ -74,9 +74,9 @@ export default function Contact() {
         My{" "}
         <span
           style={{
-            color: "#007F73",
-            fontFamily: "Brush Script MT",
-            fontWeight: "bold",
+            color: "#4338ca",
+            fontFamily: "Forte",
+            fontWeight: 500,
           }}
         >
           Contacts

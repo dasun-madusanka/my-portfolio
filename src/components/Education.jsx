@@ -6,7 +6,24 @@ import sathkara from "../assets/images/sathkara.png";
 import cowbox from "../assets/images/cowbox.jpeg";
 import hw from "../assets/images/hw.jpeg";
 import internify from "../assets/images/internify.jpg";
+import uom from "../assets/images/uom.jpg";
+import bmmv from "../assets/images/bmmv.jpeg";
+import { SingleEducation } from "./SingleEducation"
 
+const EducationData = [
+    {
+        img: uom,
+        title: "University of Moratuwa",
+        subtitle: "Higher Education",
+        description: <>BSc. (Hons) in Information Technology <br/><br/> Academic Year 2020/2021 <br/><br/> 3.653 GPA</>,
+    },
+    {
+        img: bmmv,
+        title: <>Central College<br/>Bandarawela</>,
+        subtitle: "Secondary Education",
+        description: <>ALs - Common Stream | 2020<br/>Combined Maths - A | Physics - B | ICT - B <br/><br></br> OLs | 2017<br/>Passed with 5 A passes, 2 B Passes & 2 C Passes </>,
+    }
+]
 // Project data
 const ProjectData = [
   {
@@ -41,7 +58,7 @@ const ProjectData = [
   },
 ];
 
-export default function Projects() {
+export default function Education() {
   const theme = useTheme();
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef(null);
@@ -83,7 +100,7 @@ export default function Projects() {
       ref={ref}
     >
       <Typography variant="h4" sx={{ textAlign: "center", fontWeight: 550 }}>
-        What have I Contributed to
+        Where I Learnt from
       </Typography>
 
       <Typography variant="h5" sx={{ marginBottom: 3 }}>
@@ -95,7 +112,7 @@ export default function Projects() {
             fontWeight: 500,
           }}
         >
-          Projects
+          Education
         </span>
       </Typography>
 
@@ -110,14 +127,13 @@ export default function Projects() {
           padding: 2
         }}
       >
-        {ProjectData.map((project, index) => (
-          <SingleProject
-            project_img={project.project_img}
-            project_title={project.project_title}
-            project_description={project.project_description}
+        {EducationData.map((ed, index) => (
+          <SingleEducation
             key={index}
-            style={{ animationDelay: `${index * 0.3}s`, animation: isVisible ? `zoomIn 1s ease-out` : 'none' }} // Apply animation if visible
-            status={project.status}
+            img={ed.img}
+            title={ed.title}
+            subtitle={ed.subtitle}
+            description={ed.description}
           />
         ))}
       </Box>

@@ -18,11 +18,13 @@ import pgLogo from "../assets/images/pgLogo.png";
 import mongoLogo from "../assets/images/mongoLogo.png";
 import ghLogo from "../assets/images/ghLogo.png";
 import gitLogo from "../assets/images/gitLogo.png";
+import pythonLogo from "../assets/images/pythonLogo.png";
 
 const ProgrammingLanguages = [
   { img: cLogo, language: "C", value: 90, color: "#FF5722" },
   { img: cppLogo, language: "C++", value: 80, color: "#FF5722" },
   { img: javaLogo, language: "Java", value: 88, color: "#FF5722" },
+  { img: pythonLogo, language: "Python", value: 94, color: "#FF5722" },
 ];
 
 const WebTechnologies = [
@@ -117,9 +119,9 @@ export default function TechSkills() {
         My{" "}
         <span
           style={{
-            color: "#007F73",
-            fontFamily: "Brush Script MT",
-            fontWeight: "bold",
+            color: "#4338ca",
+            fontFamily: "Forte",
+            fontWeight: 500,
           }}
         >
           Technical Skills
@@ -184,7 +186,7 @@ export default function TechSkills() {
           />
 
           {/* Custom Legend with Icons */}
-          <Box sx={{ display: "flex", justifyContent: "center", marginTop: 2 }}>
+          <Box sx={{ display: "flex", width: "80%", flexWrap: "wrap", justifyContent: "center", marginTop: 2 }}>
             {currentSection.data.map((item, index) => (
               <Box
                 key={index}

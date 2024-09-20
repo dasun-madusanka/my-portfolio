@@ -1,6 +1,48 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Box, Typography, useTheme } from "@mui/material";
 import SingleSkillCard from "./SingleSkillCard";
+import SoftSkillProgess from "./SoftSkillProgress";
+import { RiSpeakFill } from "react-icons/ri";
+import { RiTeamFill } from "react-icons/ri";
+import { MdOutlineAccessTimeFilled } from "react-icons/md";
+import { GiThink } from "react-icons/gi";
+import { FaQuestion } from "react-icons/fa";
+import { GrUserManager } from "react-icons/gr";
+import Grid from '@mui/material/Grid2';
+// import { icon } from "leaflet";
+
+const SoftSkillsList = [
+  {
+    topic: "Communication",
+    value: 90,
+    icon: <RiSpeakFill />,
+  },
+  {
+    topic: "Team Work",
+    value: 90,
+    icon: <RiTeamFill />,
+  },
+  {
+    topic: "Leadership",
+    value: 90,
+    icon: <GrUserManager />,
+  },
+  {
+    topic: "Time Management",
+    value: 90,
+    icon: <MdOutlineAccessTimeFilled />,
+  },
+  {
+    topic: "Critical Thinking",
+    value: 90,
+    icon: <GiThink />,
+  },
+  {
+    topic: "Problem Solving",
+    value: 90,
+    icon: <FaQuestion />,
+  },
+];
 
 export default function SoftSkills() {
   const theme = useTheme();
@@ -48,9 +90,9 @@ export default function SoftSkills() {
         My{" "}
         <span
           style={{
-            color: "#007F73",
-            fontFamily: "Brush Script MT",
-            fontWeight: "bold",
+            color: "#4338ca",
+            fontFamily: "Forte",
+            fontWeight: 500,
           }}
         >
           Soft Skills
@@ -59,19 +101,33 @@ export default function SoftSkills() {
 
       <Box
         sx={{
-          width: "100%",
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "center",
-          flexWrap: "wrap",
+          maxWidth: "100%",
+          p: 4
         }}
       >
-        <SingleSkillCard topic="Communication" value={90} isVisible={isVisible} />
-        <SingleSkillCard topic="Teamwork" value={95} isVisible={isVisible} />
-        <SingleSkillCard topic="Leadership" value={97} isVisible={isVisible} />
-        <SingleSkillCard topic="Time Management" value={90} isVisible={isVisible} />
-        <SingleSkillCard topic="Critical Thinking" value={88} isVisible={isVisible} />
-        <SingleSkillCard topic="Problem Solving" value={92} isVisible={isVisible} />
+        <Box sx={{ maxWidth: "100%", flexGrow: 1 }}>
+          <Grid
+            container
+            spacing={{ xs: 2, md: 5 }}
+            columns={{ xs: 4, sm: 8, md: 12 }}
+          >
+            {SoftSkillsList.map((skill, index) => (
+              <Grid key={index} size={{ xs: 4, sm: 4, md: 4 }}>
+                <SoftSkillProgess
+                  value={skill.value}
+                  isVisible={isVisible}
+                  title={skill.topic}
+                  icon={skill.icon}
+                />
+              </Grid>
+            ))}
+            {/* {Array.from(Array(6)).map((_, index) => (
+              <Grid key={index} size={{ xs: 2, sm: 4, md: 4 }}>
+                <Item>{index + 1}</Item>
+              </Grid>
+            ))} */}
+          </Grid>
+        </Box>
       </Box>
     </Box>
   );

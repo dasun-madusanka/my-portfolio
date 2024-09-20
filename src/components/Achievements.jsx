@@ -1,11 +1,61 @@
 import React, { useRef, useState, useEffect } from "react";
 import { Box, Typography, useTheme } from "@mui/material";
 import SingleProject from "./SingleProject";
+import {SingleArchievement} from "./SingleArchievement";
 import hwg from "../assets/images/hwg.png";
 import sathkara from "../assets/images/sathkara.png";
 import cowbox from "../assets/images/cowbox.jpeg";
 import hw from "../assets/images/hw.jpeg";
 import internify from "../assets/images/internify.jpg";
+import first from "../assets/images/first.png";
+import third from "../assets/images/third.png";
+import fifth from "../assets/images/fifth.png";
+import codecon from "../assets/images/codecon.jpeg";
+import codefest from "../assets/images/codefest.jpeg";
+import coderush from "../assets/images/coderush.jpeg";
+import devquest from "../assets/images/devquest.jpeg";
+import pyhacknew from "../assets/images/pyhacknew.jpg";
+import cr from "../assets/images/cr.jpg";
+// import { ConstructionOutlined } from "@mui/icons-material";
+
+const AcheivementData = [
+    {
+        cover_img: codecon,
+        logo: first,
+        title: <>SLIIT Codecon <br /> 2023 </>,
+        date: "2023",
+    },
+    {
+        cover_img: codefest,
+        logo: third,
+        title: <>SLIIT Codefest <br /> 2022 </>,
+        date: "2022",
+    },
+    {
+        cover_img: coderush,
+        logo: third,
+        title: <>Code Rush <br /> 2023 </>,
+        date: "2023",
+    },
+    {
+        cover_img: devquest,
+        logo: fifth,
+        title: <>SLIIT Codefest <br />(Dev Quest) 2023 </>,
+        date: "2023",
+    },
+    {
+        cover_img: pyhacknew,
+        logo: third,
+        title: <>Py Hack 2.0 <br />2023</>,
+        date: "2023",
+    },
+    {
+        cover_img: cr,
+        logo: fifth,
+        title: <>Code Reviver 2.0 <br />2023</>,
+        date: "2023",
+    }
+]
 
 // Project data
 const ProjectData = [
@@ -41,7 +91,7 @@ const ProjectData = [
   },
 ];
 
-export default function Projects() {
+export default function Achievement() {
   const theme = useTheme();
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef(null);
@@ -83,7 +133,7 @@ export default function Projects() {
       ref={ref}
     >
       <Typography variant="h4" sx={{ textAlign: "center", fontWeight: 550 }}>
-        What have I Contributed to
+        What have I Achieved
       </Typography>
 
       <Typography variant="h5" sx={{ marginBottom: 3 }}>
@@ -95,7 +145,7 @@ export default function Projects() {
             fontWeight: 500,
           }}
         >
-          Projects
+          Achievements
         </span>
       </Typography>
 
@@ -110,14 +160,13 @@ export default function Projects() {
           padding: 2
         }}
       >
-        {ProjectData.map((project, index) => (
-          <SingleProject
-            project_img={project.project_img}
-            project_title={project.project_title}
-            project_description={project.project_description}
+        {AcheivementData.map((ac, index) => (
+          <SingleArchievement
             key={index}
-            style={{ animationDelay: `${index * 0.3}s`, animation: isVisible ? `zoomIn 1s ease-out` : 'none' }} // Apply animation if visible
-            status={project.status}
+            cover={ac.cover_img}
+            logo={ac.logo}
+            title={ac.title}
+            date={ac.date}
           />
         ))}
       </Box>
