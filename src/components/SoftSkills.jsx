@@ -14,12 +14,12 @@ import Grid from '@mui/material/Grid2';
 const SoftSkillsList = [
   {
     topic: "Communication",
-    value: 90,
+    value: 93,
     icon: <RiSpeakFill />,
   },
   {
     topic: "Team Work",
-    value: 90,
+    value: 95,
     icon: <RiTeamFill />,
   },
   {
@@ -29,17 +29,17 @@ const SoftSkillsList = [
   },
   {
     topic: "Time Management",
-    value: 90,
+    value: 92,
     icon: <MdOutlineAccessTimeFilled />,
   },
   {
     topic: "Critical Thinking",
-    value: 90,
+    value: 83,
     icon: <GiThink />,
   },
   {
     topic: "Problem Solving",
-    value: 90,
+    value: 81,
     icon: <FaQuestion />,
   },
 ];

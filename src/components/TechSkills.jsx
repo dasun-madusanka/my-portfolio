@@ -21,25 +21,25 @@ import gitLogo from "../assets/images/gitLogo.png";
 import pythonLogo from "../assets/images/pythonLogo.png";
 
 const ProgrammingLanguages = [
-  { img: cLogo, language: "C", value: 90, color: "#FF5722" },
-  { img: cppLogo, language: "C++", value: 80, color: "#FF5722" },
-  { img: javaLogo, language: "Java", value: 88, color: "#FF5722" },
-  { img: pythonLogo, language: "Python", value: 94, color: "#FF5722" },
+  { img: cLogo, language: "C", value: 93, color: "#FF5722" },
+  { img: cppLogo, language: "C++", value: 82, color: "#FF5722" },
+  { img: javaLogo, language: "Java", value: 85, color: "#FF5722" },
+  { img: pythonLogo, language: "Python", value: 96, color: "#FF5722" },
 ];
 
 const WebTechnologies = [
   { img: htmlLogo, language: "HTML", value: 97, color: "#FF5722" },
-  { img: cssLogo, language: "CSS", value: 93, color: "#FF5722" },
-  { img: jsLogo, language: "JavaScript", value: 87, color: "#FF5722" },
-  { img: tsLogo, language: "TypeScript", value: 82, color: "#FF5722" },
-  { img: reactLogo, language: "React", value: 91, color: "#FF5722" },
-  { img: nestLogo, language: "NestJS", value: 89, color: "#FF5722" },
+  { img: cssLogo, language: "CSS", value: 96, color: "#FF5722" },
+  { img: jsLogo, language: "JavaScript", value: 90, color: "#FF5722" },
+  { img: tsLogo, language: "TypeScript", value: 88, color: "#FF5722" },
+  { img: reactLogo, language: "React", value: 92, color: "#FF5722" },
+  { img: nestLogo, language: "NestJS", value: 75, color: "#FF5722" },
 ];
 
 const DbTechnologies = [
   { img: mysqlLogo, language: "MySQL", value: 90, color: "#FF5722" },
-  { img: pgLogo, language: "PostgreSQL", value: 96, color: "#FF5722" },
-  { img: mongoLogo, language: "MongoDB", value: 77, color: "#FF5722" },
+  { img: pgLogo, language: "PostgreSQL", value: 80, color: "#FF5722" },
+  { img: mongoLogo, language: "MongoDB", value: 90, color: "#FF5722" },
 ];
 
 const VersionControlTechnologies = [
