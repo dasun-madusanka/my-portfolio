@@ -63,7 +63,7 @@ export default function SoftSkillProgess({ value, isVisible, icon, title }) {
         maxWidth: "100%",
         alignItems: "center",
         borderRadius: "12px",
-        boxShadow: "0 2px 4px 0 rgba(138, 148, 159, 0.2)",
+        boxShadow: "0 2px 4px 0 rgba(109, 40, 217, 0.2)",
         "& > *:nth-child(1)": {
           marginRight: 2,
         },
