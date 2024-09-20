@@ -100,7 +100,7 @@ export default function Education() {
       ref={ref}
     >
       <Typography variant="h4" sx={{ textAlign: "center", fontWeight: 550 }}>
-        Where I Learnt from
+      Foundations of My Skills
       </Typography>
 
       <Typography variant="h5" sx={{ marginBottom: 3 }}>

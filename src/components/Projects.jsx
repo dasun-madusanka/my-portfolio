@@ -83,7 +83,7 @@ export default function Projects() {
       ref={ref}
     >
       <Typography variant="h4" sx={{ textAlign: "center", fontWeight: 550 }}>
-        What have I Contributed to
+        How is my Contribution
       </Typography>
 
       <Typography variant="h5" sx={{ marginBottom: 3 }}>

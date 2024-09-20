@@ -67,7 +67,7 @@ export default function Contact() {
       }}
     >
       <Typography variant="h4" sx={{ textAlign: "center", fontWeight: 550 }}>
-        Connect with Me
+       How to Reach Me
       </Typography>
 
       <Typography variant="h5" sx={{ marginBottom: 3 }}>
@@ -85,12 +85,13 @@ export default function Contact() {
 
       <Box
         sx={{
-          width: "100%",
+          maxWidth: "100%",
           display: "flex",
           flexDirection: "row",
           justifyContent: "center",
           flexWrap: "wrap",
           gap: 2,
+          padding: 2,
         }}
       >
         {contacts.map((contact, index) => (

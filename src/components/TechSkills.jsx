@@ -112,7 +112,7 @@ export default function TechSkills() {
       }}
     >
       <Typography variant="h4" sx={{ textAlign: "center", fontWeight: 550 }}>
-        Technical Proficiencies
+      What I’m Best at in Tech
       </Typography>
 
       <Typography variant="h5" sx={{ marginBottom: 3 }}>

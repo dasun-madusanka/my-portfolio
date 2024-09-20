@@ -83,7 +83,7 @@ export default function SoftSkills() {
       }}
     >
       <Typography variant="h4" sx={{ textAlign: "center", fontWeight: 550 }}>
-        What I Excel In
+      Where My Skills Shine
       </Typography>
 
       <Typography variant="h5" sx={{ marginBottom: 3 }}>
