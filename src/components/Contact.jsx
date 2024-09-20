@@ -42,14 +42,14 @@ const contacts = [
   {
     icon: <AiFillInstagram style={contactStyles} />,
     title: "Instagram",
-    value: <span style={{fontSize: "10px"}}>dasunmadusanka7890@gmail.com</span>,
-    link: "mailto:dasunmadusanka7890@gmail.com",
+    value: "_dasunmadusanka_",
+    link: "https://www.instagram.com/dasunmadusanka?igsh=MTMzbHVwcjR2ZWF2NA==",
   },
   {
     icon: <FaLocationDot style={contactStyles} />,
     title: "I'm Here",
-    value: "dasun-madusanka",
-    link: "https://www.linkedin.com/in/dasun-madusanka-aab971265/",
+    value: "Bandarawela, Sri Lanka",
+    link: "https://maps.app.goo.gl/dj4LmnnLtDt38akEA",
   },
 ];
 
