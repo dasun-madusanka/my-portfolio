@@ -39,12 +39,12 @@ const contacts = [
     value: "Dasun Madusanka",
     link: "https://www.facebook.com/dasun.wanasinghe?mibextid=ZbWKwL",
   },
-  {
-    icon: <AiFillInstagram style={contactStyles} />,
-    title: "Instagram",
-    value: "_dasunmadusanka_",
-    link: "https://www.instagram.com/dasunmadusanka?igsh=MTMzbHVwcjR2ZWF2NA==",
-  },
+  // {
+  //   icon: <AiFillInstagram style={contactStyles} />,
+  //   title: "Instagram",
+  //   value: "_dasunmadusanka_",
+  //   link: "https://www.instagram.com/dasunmadusanka?igsh=MTMzbHVwcjR2ZWF2NA==",
+  // },
   {
     icon: <FaLocationDot style={contactStyles} />,
     title: "I'm Here",
