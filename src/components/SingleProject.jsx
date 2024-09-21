@@ -6,12 +6,13 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import DoneIcon from '@mui/icons-material/Done';
-import AutorenewIcon from '@mui/icons-material/Autorenew';
+import Popover from "@mui/material/Popover";
+import DoneIcon from "@mui/icons-material/Done";
+import AutorenewIcon from "@mui/icons-material/Autorenew";
 import { Info, InfoEyebrow, InfoSubtitle, InfoTitle } from "./info-basic";
 import { keyframes } from "@mui/system";
 // import { Info}
-import { Chip } from "@mui/material";
+import { Chip, Divider } from "@mui/material";
 
 // Define the zoom-in animation
 const zoomIn = keyframes`
@@ -31,7 +32,22 @@ export default function SingleProject({
   project_description,
   style,
   status,
+  technologies,
+  type,
+  role,
 }) {
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const open = Boolean(anchorEl);
+  const id = open ? "simple-popover" : undefined;
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef(null);
 
@@ -80,9 +96,7 @@ export default function SingleProject({
       })}
     >
       <CardMedia
-        image={
-          project_img
-        }
+        image={project_img}
         sx={(theme) => ({
           minWidth: "200px",
           marginLeft: "auto",
@@ -142,11 +156,10 @@ export default function SingleProject({
         >
           {/* <InfoEyebrow>28 MAR 2019</InfoEyebrow> */}
           <InfoTitle>{project_title}</InfoTitle>
-          <InfoSubtitle>
-            {project_description}
-          </InfoSubtitle>
+          <InfoSubtitle>{project_description}</InfoSubtitle>
         </Info>
         <Button
+          onClick={handleClick}
           sx={{
             backgroundImage: "linear-gradient(147deg, #6d28d9 0%, #4338ca 74%)",
             boxShadow: "0px 4px 32px rgba(109, 40, 217, 0.6)",
@@ -158,6 +171,52 @@ export default function SingleProject({
         >
           Read more
         </Button>
+        <Popover
+          id={id}
+          open={open}
+          anchorEl={anchorEl}
+          onClose={handleClose}
+          anchorOrigin={{
+            vertical: "bottom",
+            horizontal: "right",
+          }}
+          transformOrigin={{
+            vertical: 'top',
+            horizontal: 'right',
+          }}
+        >
+          <Box
+            sx={{
+              p: 2,
+              width: "230px",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
+            {/* <Chip label={type}></Chip> */}
+            <Box>
+              <Typography variant="subtitle1">{type}</Typography>
+            </Box>
+
+            <Divider sx={{ width: "100%", mt: 1, mb: 1 }} />
+            <Typography variant="subtitle2" sx={{ textAlign: "center" }}>
+              {"I'm " + role + " in this Project"}
+            </Typography>
+
+            <Divider sx={{ width: "100%", mt: 1, mb: 1 }} />
+            <Typography variant="subtitle2" sx={{ textAlign: "center" }}>
+              Technologies
+            </Typography>
+
+            <Box sx={{textAlign: "center", display: "flex", flexDirection: "row", justifyContent: "center", gap: 1, mt: 1, flexWrap: "wrap" }}>
+              {technologies.map((tech, index) => (
+                <>{tech.icon}</>
+              ))}
+              </Box>
+          </Box>
+          {/* <Typography sx={{ p: 2 }}>The content of the Popover.</Typography> */}
+        </Popover>
       </CardContent>
     </Card>
   );
