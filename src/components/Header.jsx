@@ -59,7 +59,7 @@ function Header(props) {
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center", zIndex: 2 }}>
       <Typography variant="h6" sx={{ my: 2 }}>
-        HST Muthunayaka
+        WMD Madusanka
       </Typography>
       <Divider />
       <List>
