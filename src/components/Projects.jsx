@@ -9,6 +9,7 @@ import internify from "../assets/images/internify.jpg";
 import { SiMongodb } from "react-icons/si";
 import { FaReact } from "react-icons/fa";
 import { FaNodeJs } from "react-icons/fa";
+import { SiExpress } from "react-icons/si";
 import { IoLogoJavascript } from "react-icons/io5";
 import { SiTypescript } from "react-icons/si";
 import { IoLogoFirebase } from "react-icons/io5";
@@ -27,7 +28,7 @@ const ProjectData = [
       { icon: <SiTypescript />, name: "TypeScript" },
       { icon: <RiNextjsFill />, name: "Next.js" },
       { icon: <SiMongodb />, name: "MongoDB" },
-      { icon: <FaNodeJs />, name: "Node.js" },
+      { icon: <SiExpress />, name: "Node.js" },
     ],
     role: "a Full Stack Developer",
     type: "Level II Software Project"
@@ -41,7 +42,7 @@ const ProjectData = [
       { icon: <IoLogoJavascript />, name: "JavaScript" },
       { icon: <FaReact />, name: "React.js" },
       { icon: <SiMongodb />, name: "MongoDB" },
-      { icon: <FaNodeJs />, name: "Node.js" },
+      { icon: <SiExpress />, name: "Node.js" },
     ],
     role: "a Backend Developer",
     type: "SLIIT Codecon 2023 App"
@@ -55,7 +56,7 @@ const ProjectData = [
       { icon: <IoLogoJavascript />, name: "JavaScript" },
       { icon: <FaReact />, name: "React.js" },
       { icon: <IoLogoFirebase />, name: "Firebase" },
-      { icon: <FaNodeJs />, name: "Node.js" },
+      { icon: <SiExpress />, name: "Node.js" },
     ],
     role: "a Frontend Developer",
     type: "SLIIT Codefest 2022 App"
@@ -84,7 +85,7 @@ const ProjectData = [
       { icon: <SiTypescript />, name: "TypeScript" },
       { icon: <RiNextjsFill />, name: "Next.js" },
       { icon: <BiLogoPostgresql />, name: "PostgreSQl" },
-      { icon: <FaNodeJs />, name: "Node.js" },
+      { icon: <SiExpress />, name: "Node.js" },
     ],
     role: "a Frontend Developer",
     type: "Internship Tracking System"

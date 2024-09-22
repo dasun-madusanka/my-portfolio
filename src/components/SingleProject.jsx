@@ -178,11 +178,11 @@ export default function SingleProject({
           onClose={handleClose}
           anchorOrigin={{
             vertical: "bottom",
-            horizontal: "right",
+            horizontal: "center",
           }}
           transformOrigin={{
             vertical: 'top',
-            horizontal: 'right',
+            horizontal: 'center',
           }}
         >
           <Box
