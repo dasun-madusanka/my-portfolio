@@ -16,6 +16,7 @@ import { IoLogoFirebase } from "react-icons/io5";
 import { RiNextjsFill } from "react-icons/ri";
 import { BiLogoPostgresql } from "react-icons/bi";
 
+
 // Project data
 const ProjectData = [
   {
