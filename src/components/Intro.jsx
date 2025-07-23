@@ -173,10 +173,11 @@ export default function Intro() {
 
               <Box sx={{ width: "100%", textAlign: "justify", mb: 2 }}>
                 <Typography variant="subtitle2" color="textSecondary">
-                  As a third-year undergraduate with a keen interest in
-                  technology, I'm eager to dive into projects and expand my
-                  skills. Though my experience is limited, my enthusiasm and
-                  commitment to learning are boundless.
+                  I am a passionate and motivated undergraduate in software
+                  engineering, currently pursuing a BSc (Hons) in Information
+                  Technology. With hands-on experience as a software engineering
+                  intern, I have developed a solid foundation in software
+                  development practices and real-world project collaboration.
                 </Typography>
               </Box>
 

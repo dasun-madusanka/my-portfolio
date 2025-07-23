@@ -6,6 +6,7 @@ import sathkara from "../assets/images/sathkara.png";
 import cowbox from "../assets/images/cowbox.jpeg";
 import hw from "../assets/images/hw.jpeg";
 import internify from "../assets/images/internify.jpg";
+import multiflix from "../assets/images/multiflix.png";
 import { SiMongodb } from "react-icons/si";
 import { FaReact } from "react-icons/fa";
 import { FaNodeJs } from "react-icons/fa";
@@ -16,13 +17,13 @@ import { IoLogoFirebase } from "react-icons/io5";
 import { RiNextjsFill } from "react-icons/ri";
 import { BiLogoPostgresql } from "react-icons/bi";
 
-
 // Project data
 const ProjectData = [
   {
     project_img: hwg,
     project_title: "HearWeGo",
-    project_description: "Web application provides a platform to manage songs, albums, events, fan clubs, press and PR campaigns of artists and provides facility of hit prediction of a song.",
+    project_description:
+      "Web application provides a platform to manage songs, albums, events, fan clubs, press and PR campaigns of artists and provides facility of hit prediction of a song.",
     status: "Done",
     technologies: [
       { icon: <IoLogoJavascript />, name: "JavaScript" },
@@ -32,12 +33,13 @@ const ProjectData = [
       { icon: <SiExpress />, name: "Node.js" },
     ],
     role: "a Full Stack Developer",
-    type: "Level II Software Project"
+    type: "Level II Software Project",
   },
   {
     project_img: sathkara,
     project_title: "Sathkara App",
-    project_description: "Web application that provides facility to find medicines and allows to contact the medicine owners. Users can add posts if they have medicines.",
+    project_description:
+      "Web application that provides facility to find medicines and allows to contact the medicine owners. Users can add posts if they have medicines.",
     status: "Done",
     technologies: [
       { icon: <IoLogoJavascript />, name: "JavaScript" },
@@ -46,12 +48,13 @@ const ProjectData = [
       { icon: <SiExpress />, name: "Node.js" },
     ],
     role: "a Backend Developer",
-    type: "SLIIT Codecon 2023 App"
+    type: "SLIIT Codecon 2023 App",
   },
   {
     project_img: cowbox,
     project_title: "Cow Box",
-    project_description: "Web application that provides facility to express for the voters to express their vote to the electoral candidates. And it allows to manage the parties of the electoral candidates.",
+    project_description:
+      "Web application that provides facility to express for the voters to express their vote to the electoral candidates. And it allows to manage the parties of the electoral candidates.",
     status: "Done",
     technologies: [
       { icon: <IoLogoJavascript />, name: "JavaScript" },
@@ -60,13 +63,58 @@ const ProjectData = [
       { icon: <SiExpress />, name: "Node.js" },
     ],
     role: "a Frontend Developer",
-    type: "SLIIT Codefest 2022 App"
+    type: "SLIIT Codefest 2022 App",
+  },
+  {
+    project_img: cowbox,
+    project_title: "Looklift",
+    project_description:
+      "Built a microservices-based web application for online clothing shopping with features like user registration, product listing, secure buying/selling, and integrated payment gateway. Recognized for its robust architecture, smooth functionality, and strong team collaboration.",
+    status: "Done",
+    technologies: [
+      { icon: <SiTypescript />, name: "TypeScript" },
+      { icon: <RiNextjsFill />, name: "Next.js" },
+      { icon: <SiExpress />, name: "Node.js" },
+      { icon: <BiLogoPostgresql />, name: "PostgreSQl" },
+    ],
+    role: "a Backend Developer",
+    type: "Level 03 Microservices Project",
+  },
+  {
+    project_img: multiflix,
+    project_title: "Multiflix",
+    project_description:
+      "Developed an Android application as an individual project that enables users to explore and discover top-rated movies and TV shows. The app features a user-friendly interface and smooth functionality, providing an engaging browsing experience. Recognized for its intuitive design and seamless performance, entirely built and managed by me.",
+    status: "Done",
+    technologies: [
+      { icon: <FaReact />, name: "React Native" },
+      { icon: <IoLogoJavascript />, name: "JavaScript" },
+      { icon: <SiExpress />, name: "Express.js" },
+      { icon: <IoLogoFirebase />, name: "Firebase" },
+    ],
+    role: "the Fullstack Developer",
+    type: "Level 03 Mobile Application Project",
+  },
+  {
+    project_img: internify,
+    project_title: "Internify",
+    project_description:
+      "Web application that provides facility students to upload their CVs and apply for the internships",
+    status: "Done",
+    technologies: [
+      { icon: <RiNextjsFill />, name: "Next.js" },
+      { icon: <BiLogoPostgresql />, name: "PostgreSQl" },
+      { icon: <SiExpress />, name: "Node.js" },
+    ],
+    role: "a Frontend Developer",
+    type: "Internship Tracking System",
   },
   {
     project_img: hw,
     project_title: "Coco-Smoothie Maker",
-    project_description: "Arduino project that allows to make fruit juice using coconut water automatically. It automates the full process of making smoothie. ",
-    status: "Ongoing",
+    project_description:
+      "Arduino project that allows to make fruit juice using coconut water automatically. It automates the full process of making smoothie. ",
+    status: "Done",
     technologies: [
       { icon: "Nema17 | ", name: "JavaScript" },
       { icon: "DS3231 RTC Module | ", name: "TypeScript" },
@@ -75,21 +123,7 @@ const ProjectData = [
       { icon: "12V DC Motor", name: "Node.js" },
     ],
     role: "the Leader",
-    type: "Level I Hardware Project"
-  },
-  {
-    project_img: internify,
-    project_title: "Internify",
-    project_description: "Web application that provides facility students to upload their CVs and apply for the internships",
-    status: "Ongoing",
-    technologies: [
-      { icon: <SiTypescript />, name: "TypeScript" },
-      { icon: <RiNextjsFill />, name: "Next.js" },
-      { icon: <BiLogoPostgresql />, name: "PostgreSQl" },
-      { icon: <SiExpress />, name: "Node.js" },
-    ],
-    role: "a Frontend Developer",
-    type: "Internship Tracking System"
+    type: "Level I Hardware Project",
   },
 ];
 
@@ -159,7 +193,7 @@ export default function Projects() {
           justifyContent: "center",
           flexWrap: "wrap",
           gap: 8,
-          padding: 2
+          padding: 2,
         }}
       >
         {ProjectData.map((project, index) => (
@@ -168,7 +202,10 @@ export default function Projects() {
             project_title={project.project_title}
             project_description={project.project_description}
             key={index}
-            style={{ animationDelay: `${index * 0.3}s`, animation: isVisible ? `zoomIn 1s ease-out` : 'none' }} // Apply animation if visible
+            style={{
+              animationDelay: `${index * 0.3}s`,
+              animation: isVisible ? `zoomIn 1s ease-out` : "none",
+            }} // Apply animation if visible
             status={project.status}
             type={project.type}
             technologies={project.technologies}

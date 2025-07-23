@@ -19,6 +19,7 @@ import mongoLogo from "../assets/images/mongoLogo.png";
 import ghLogo from "../assets/images/ghLogo.png";
 import gitLogo from "../assets/images/gitLogo.png";
 import pythonLogo from "../assets/images/pythonLogo.png";
+import reactNativeLogo from "../assets/images/reactnativeLogo.svg";
 
 const ProgrammingLanguages = [
   { img: cLogo, language: "C", value: 93, color: "#FF5722" },
@@ -34,6 +35,16 @@ const WebTechnologies = [
   { img: tsLogo, language: "TypeScript", value: 88, color: "#FF5722" },
   { img: reactLogo, language: "React", value: 92, color: "#FF5722" },
   { img: nestLogo, language: "NestJS", value: 75, color: "#FF5722" },
+];
+
+const AppTechnologies = [
+  {
+    img: reactNativeLogo,
+    language: "React Native",
+    value: 84,
+    color: "#FF5722",
+  },
+  { img: javaLogo, language: "Android + Java", value: 63, color: "#FF5722" },
 ];
 
 const DbTechnologies = [
@@ -56,6 +67,7 @@ export default function TechSkills() {
   const sections = [
     { title: "Programming Languages", data: ProgrammingLanguages },
     { title: "Web Technologies", data: WebTechnologies },
+    { title: "Mobile App Development", data: AppTechnologies },
     { title: "Database", data: DbTechnologies },
     { title: "Version Controlling", data: VersionControlTechnologies },
   ];
@@ -112,7 +124,7 @@ export default function TechSkills() {
       }}
     >
       <Typography variant="h4" sx={{ textAlign: "center", fontWeight: 550 }}>
-      What I’m Best at in Tech
+        What I’m Best at in Tech
       </Typography>
 
       <Typography variant="h5" sx={{ marginBottom: 3 }}>
@@ -154,7 +166,10 @@ export default function TechSkills() {
             gap: 1,
           }}
         >
-          <Typography variant="h6" sx={{ fontSize: "1rem", textAlign: "center" }}>
+          <Typography
+            variant="h6"
+            sx={{ fontSize: "1rem", textAlign: "center" }}
+          >
             {currentSection.title}
           </Typography>
 
@@ -186,7 +201,15 @@ export default function TechSkills() {
           />
 
           {/* Custom Legend with Icons */}
-          <Box sx={{ display: "flex", width: "80%", flexWrap: "wrap", justifyContent: "center", marginTop: 2 }}>
+          <Box
+            sx={{
+              display: "flex",
+              width: "80%",
+              flexWrap: "wrap",
+              justifyContent: "center",
+              marginTop: 2,
+            }}
+          >
             {currentSection.data.map((item, index) => (
               <Box
                 key={index}
@@ -198,7 +221,11 @@ export default function TechSkills() {
               >
                 <Icon sx={{ color: item.color, fontSize: 24 }}>
                   {/* Use Material Icons or SVGs here */}
-                  <img src={item.img} alt={item.language} style={{ width: 24, height: 24 }} />
+                  <img
+                    src={item.img}
+                    alt={item.language}
+                    style={{ width: 24, height: 24 }}
+                  />
                 </Icon>
                 <Typography variant="body2" sx={{ marginLeft: 1 }}>
                   {item.language}

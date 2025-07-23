@@ -16,9 +16,16 @@ import coderush from "../assets/images/coderush.jpeg";
 import devquest from "../assets/images/devquest.jpeg";
 import pyhacknew from "../assets/images/pyhacknew.jpg";
 import cr from "../assets/images/cr.jpg";
+import dev24 from "../assets/images/dev24.jpg";
 // import { ConstructionOutlined } from "@mui/icons-material";
 
 const AcheivementData = [
+  {
+        cover_img: dev24,
+        logo: first,
+        title: <>SLIIT Codefest <br />(Dev Quest) 2024 </>,
+        date: "2024",
+    },
     {
         cover_img: codecon,
         logo: first,

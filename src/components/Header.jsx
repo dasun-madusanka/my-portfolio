@@ -41,7 +41,7 @@ const drawerWidth = 240;
 const handleClick = () => {
   try {
     window.location.href =
-      "https://drive.google.com/file/d/1s_mw3dafTFGc6KI1IBv_qUW4kgynw3TS/view?usp=drive_link";
+      "https://drive.google.com/file/d/1mUSmWoJbNgK_2xM3meVJtrsEfwGpoUzu/view?usp=sharing";
   } catch (error) {
     console.error("Error setting location:", error);
   }
