@@ -7,6 +7,7 @@ import cowbox from "../assets/images/cowbox.jpeg";
 import hw from "../assets/images/hw.jpeg";
 import internify from "../assets/images/internify.jpg";
 import multiflix from "../assets/images/multiflix.png";
+import looklift from "../assets/images/looklift.png";
 import { SiMongodb } from "react-icons/si";
 import { FaReact } from "react-icons/fa";
 import { FaNodeJs } from "react-icons/fa";
@@ -66,7 +67,7 @@ const ProjectData = [
     type: "SLIIT Codefest 2022 App",
   },
   {
-    project_img: cowbox,
+    project_img: looklift,
     project_title: "Looklift",
     project_description:
       "Built a microservices-based web application for online clothing shopping with features like user registration, product listing, secure buying/selling, and integrated payment gateway. Recognized for its robust architecture, smooth functionality, and strong team collaboration.",
