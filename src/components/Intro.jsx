@@ -173,11 +173,7 @@ export default function Intro() {
 
               <Box sx={{ width: "100%", textAlign: "justify", mb: 2 }}>
                 <Typography variant="subtitle2" color="textSecondary">
-                  I am a passionate and motivated undergraduate in software
-                  engineering, currently pursuing a BSc (Hons) in Information
-                  Technology. With hands-on experience as a software engineering
-                  intern, I have developed a solid foundation in software
-                  development practices and real-world project collaboration.
+                  A highly motivated Software Engineer and final-year undergraduate pursuing a BSc (Hons) in Information Technology, with hands-on experience as both a Software Engineering Intern and an Associate Software Engineer. Experienced in designing, developing, and maintaining scalable software solutions while collaborating effectively in agile, team-based environments. Passionate about writing clean, efficient code and continuously improving technical and problem-solving skills to deliver high-quality software products.
                 </Typography>
               </Box>
 

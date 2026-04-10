@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "../components/Header";
 import Intro from "../components/Intro";
+import WorkExperience from "../components/Workexperience";
 import SoftSkills from "../components/SoftSkills";
 import TechSkills from "../components/TechSkills";
 import Projects from "../components/Projects";
@@ -16,6 +17,9 @@ export default function Home() {
       <Header />
       <Element name="Intro">
         <Intro />
+      </Element>
+      <Element name="Work Experience">
+        <WorkExperience />
       </Element>
       <Element name="Soft Skills">
         <SoftSkills />

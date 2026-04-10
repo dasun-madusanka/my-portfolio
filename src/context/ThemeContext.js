@@ -31,8 +31,8 @@ export default function ThemeContextProvider({ children }) {
             main: mode === "light" ? "#4338ca" : "#4338ca", // Custom secondary colors for light/dark
             contrastText: "#fff",
           },
-          textPrimary: { main: mode === "light" ? "#000000" : "#ffffff", contrastText: "fff" }, // Custom text color for light/dark
-          textSecondary: { main: mode === "light" ? "#4338ca" : "#6d28d9", contrastText: "fff" }, // Custom text color for light/dark
+          textPrimary: { main: mode === "light" ? "#000000" : "#ffffff", contrastText: "#fff" }, // Custom text color for light/dark
+          textSecondary: { main: mode === "light" ? "#4338ca" : "#6d28d9", contrastText: "#fff" }, // Custom text color for light/dark
         },
         typography: {
           fontFamily: "Roboto, sans-serif", // Define your global font here
