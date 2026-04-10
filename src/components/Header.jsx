@@ -30,6 +30,7 @@ import logodark from "../assets/images/logodark.png";
 
 const pages = [
   "Intro",
+  "Work Experience",
   "Soft Skills",
   "Technical Skills",
   "Projects",
