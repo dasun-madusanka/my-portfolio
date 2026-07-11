@@ -77,11 +77,11 @@ export default function Hero({ settings }) {
           className="flex flex-col items-center gap-6 animate-floaty"
         >
           {settings?.profileImage && (
-            <div className="animate-floaty w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 rounded-2xl overflow-hidden border border-border shadow-2xl">
+            <div className="animate-floaty w-56 h-72 sm:w-64 sm:h-72 md:w-72 md:h-96 rounded-2xl overflow-hidden border border-border shadow-2xl">
               <img
-                src={urlFor(settings.profileImage).width(600).height(600).url()}
+                src={urlFor(settings.profileImage).width(600).height(800).url()}
                 alt={settings?.fullName || "Profile photo"}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-fill"
               />
             </div>
           )}
