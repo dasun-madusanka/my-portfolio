@@ -1,25 +1,7 @@
-import { Box, Typography, useTheme } from "@mui/material";
-import React from "react";
-
-export default function Footer() {
-  const theme = useTheme();
+export default function Footer({ name }) {
   return (
-    <Box
-      sx={{
-        maxWidth: "100%",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        p: 2,
-        pt: 5,
-        flexDirection: "column",
-        backgroundColor: theme.palette.background.paper,
-        color: theme.palette.text.primary,
-      }}
-    >
-      <Typography variant="subtitle1">
-        © 2024 - Developed by Dasun Madusanka
-      </Typography>
-    </Box>
+    <footer className="py-8 px-6 border-t border-border text-center text-textMuted text-sm font-mono">
+      © {new Date().getFullYear()} {name}. Built with React & Sanity.
+    </footer>
   );
 }

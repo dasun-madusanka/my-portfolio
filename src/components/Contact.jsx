@@ -1,109 +1,56 @@
-import React from "react";
-import { Box, Button, Paper, TextField, Typography, useTheme } from "@mui/material";
-import { PiPhoneCallFill } from "react-icons/pi";
-import SendIcon from "@mui/icons-material/Send";
-import { IoIosCall } from "react-icons/io";
-import { FaLinkedin } from "react-icons/fa";
-import { MdEmail } from "react-icons/md";
-import { FaWhatsappSquare } from "react-icons/fa";
-import { FaFacebook } from "react-icons/fa";
-import { AiFillInstagram } from "react-icons/ai";
-import { FaLocationDot } from "react-icons/fa6";
-import { SingleContact } from "./SingleContact";
-import Map from "./Map";
+import Section from "./Section";
+import { motion } from "framer-motion";
+import { FiMail, FiPhone, FiMapPin, FiGithub, FiLinkedin } from "react-icons/fi";
 
-const contactStyles = { fontSize: 83, width: "100%" };
+const ICONS = { github: FiGithub, linkedin: FiLinkedin, email: FiMail, phone: FiPhone };
 
-const contacts = [
-  {
-    icon: <IoIosCall style={contactStyles} />,
-    title: "Call Me",
-    value: "+94 77 918 4997",
-    link: "tel:+94779184997",
-  },
-  {
-    icon: <MdEmail style={contactStyles} />,
-    title: "E-mail Me",
-    value: <span style={{fontSize: "10px"}}>dasunmadusanka7890@gmail.com</span>,
-    link: "mailto:dasunmadusanka7890@gmail.com",
-  },
-  {
-    icon: <FaWhatsappSquare style={contactStyles} />,
-    title: "Whatsapp",
-    value: "+94779184997",
-    link: "https://wa.me/94779184997",
-  },
-  {
-    icon: <FaFacebook style={contactStyles} />,
-    title: "Facebook",
-    value: "Dasun Madusanka",
-    link: "https://www.facebook.com/dasun.wanasinghe?mibextid=ZbWKwL",
-  },
-  // {
-  //   icon: <AiFillInstagram style={contactStyles} />,
-  //   title: "Instagram",
-  //   value: "_dasunmadusanka_",
-  //   link: "https://www.instagram.com/dasunmadusanka?igsh=MTMzbHVwcjR2ZWF2NA==",
-  // },
-  {
-    icon: <FaLocationDot style={contactStyles} />,
-    title: "I'm Here",
-    value: "Bandarawela, Sri Lanka",
-    link: "https://maps.app.goo.gl/dj4LmnnLtDt38akEA",
-  },
-];
-
-export default function Contact() {
-  const theme = useTheme();
+export default function Contact({ settings, socials = [] }) {
   return (
-    <Box
-      sx={{
-        width: "100%",
-        display: "flex",
-        flexDirection: "column",
-        backgroundColor: theme.palette.background.paper,
-        color: theme.palette.text.primary,
-        paddingTop: 10,
-      }}
-    >
-      <Typography variant="h4" sx={{ textAlign: "center", fontWeight: 550 }}>
-       How to Reach Me
-      </Typography>
-
-      <Typography variant="h5" sx={{ marginBottom: 3 }}>
-        My{" "}
-        <span
-          style={{
-            color: "#4338ca",
-            fontFamily: "Forte",
-            fontWeight: 500,
-          }}
+    <Section id="contact" eyebrow="07 — Reach out" title="Let's build something">
+      <div className="grid md:grid-cols-2 gap-10 items-start">
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          className="text-textMuted leading-relaxed max-w-md"
         >
-          Contacts
-        </span>
-      </Typography>
+          {settings?.availableForWork
+            ? "I'm currently open to new roles and collaborations. Drop a message and I'll get back to you soon."
+            : "Feel free to reach out for collaborations or just to say hi."}
+        </motion.p>
 
-      <Box
-        sx={{
-          maxWidth: "100%",
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "center",
-          flexWrap: "wrap",
-          gap: 2,
-          padding: 2,
-        }}
-      >
-        {contacts.map((contact, index) => (
-          <SingleContact
-            key={index}
-            icon={contact.icon}
-            title={contact.title}
-            value={contact.value}
-            link={contact.link}
-          />
-        ))}
-      </Box>
-    </Box>
+        <div className="space-y-4">
+          <a href={`mailto:${settings?.email}`} className="flex items-center gap-3 text-textPrimary hover:text-accent transition-colors">
+            <FiMail /> {settings?.email}
+          </a>
+          {settings?.phone && (
+            <a href={`tel:${settings.phone}`} className="flex items-center gap-3 text-textPrimary hover:text-accent transition-colors">
+              <FiPhone /> {settings.phone}
+            </a>
+          )}
+          {settings?.location && (
+            <p className="flex items-center gap-3 text-textMuted">
+              <FiMapPin /> {settings.location}
+            </p>
+          )}
+          <div className="flex gap-4 pt-3">
+            {socials.map((s) => {
+              const Icon = ICONS[s.platform] || FiMail;
+              return (
+                <a
+                  key={s._id}
+                  href={s.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="w-10 h-10 flex items-center justify-center rounded-full border border-border hover:border-accent hover:text-accent transition-colors"
+                >
+                  <Icon />
+                </a>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    </Section>
   );
 }

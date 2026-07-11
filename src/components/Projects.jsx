@@ -1,219 +1,56 @@
-import React, { useRef, useState, useEffect } from "react";
-import { Box, Typography, useTheme } from "@mui/material";
-import SingleProject from "./SingleProject";
-import hwg from "../assets/images/hwg.png";
-import sathkara from "../assets/images/sathkara.png";
-import cowbox from "../assets/images/cowbox.jpeg";
-import hw from "../assets/images/hw.jpeg";
-import internify from "../assets/images/internify.jpg";
-import multiflix from "../assets/images/multiflix.png";
-import looklift from "../assets/images/looklift.png";
-import { SiMongodb } from "react-icons/si";
-import { FaReact } from "react-icons/fa";
-import { FaNodeJs } from "react-icons/fa";
-import { SiExpress } from "react-icons/si";
-import { IoLogoJavascript } from "react-icons/io5";
-import { SiTypescript } from "react-icons/si";
-import { IoLogoFirebase } from "react-icons/io5";
-import { RiNextjsFill } from "react-icons/ri";
-import { BiLogoPostgresql } from "react-icons/bi";
+import { motion } from "framer-motion";
+import Section from "./Section";
+import { urlFor } from "../lib/sanityClient";
+import { FiGithub, FiExternalLink } from "react-icons/fi";
 
-// Project data
-const ProjectData = [
-  {
-    project_img: hwg,
-    project_title: "HearWeGo",
-    project_description:
-      "Web application provides a platform to manage songs, albums, events, fan clubs, press and PR campaigns of artists and provides facility of hit prediction of a song.",
-    status: "Done",
-    technologies: [
-      { icon: <IoLogoJavascript />, name: "JavaScript" },
-      { icon: <SiTypescript />, name: "TypeScript" },
-      { icon: <RiNextjsFill />, name: "Next.js" },
-      { icon: <SiMongodb />, name: "MongoDB" },
-      { icon: <SiExpress />, name: "Node.js" },
-    ],
-    role: "a Full Stack Developer",
-    type: "Level II Software Project",
-  },
-  {
-    project_img: sathkara,
-    project_title: "Sathkara App",
-    project_description:
-      "Web application that provides facility to find medicines and allows to contact the medicine owners. Users can add posts if they have medicines.",
-    status: "Done",
-    technologies: [
-      { icon: <IoLogoJavascript />, name: "JavaScript" },
-      { icon: <FaReact />, name: "React.js" },
-      { icon: <SiMongodb />, name: "MongoDB" },
-      { icon: <SiExpress />, name: "Node.js" },
-    ],
-    role: "a Backend Developer",
-    type: "SLIIT Codecon 2023 App",
-  },
-  {
-    project_img: cowbox,
-    project_title: "Cow Box",
-    project_description:
-      "Web application that provides facility to express for the voters to express their vote to the electoral candidates. And it allows to manage the parties of the electoral candidates.",
-    status: "Done",
-    technologies: [
-      { icon: <IoLogoJavascript />, name: "JavaScript" },
-      { icon: <FaReact />, name: "React.js" },
-      { icon: <IoLogoFirebase />, name: "Firebase" },
-      { icon: <SiExpress />, name: "Node.js" },
-    ],
-    role: "a Frontend Developer",
-    type: "SLIIT Codefest 2022 App",
-  },
-  {
-    project_img: looklift,
-    project_title: "Looklift",
-    project_description:
-      "Built a microservices-based web application for online clothing shopping with features like user registration, product listing, secure buying/selling, and integrated payment gateway. Recognized for its robust architecture, smooth functionality, and strong team collaboration.",
-    status: "Done",
-    technologies: [
-      { icon: <SiTypescript />, name: "TypeScript" },
-      { icon: <RiNextjsFill />, name: "Next.js" },
-      { icon: <SiExpress />, name: "Node.js" },
-      { icon: <BiLogoPostgresql />, name: "PostgreSQl" },
-    ],
-    role: "a Backend Developer",
-    type: "Level 03 Microservices Project",
-  },
-  {
-    project_img: multiflix,
-    project_title: "Multiflix",
-    project_description:
-      "Developed an Android application as an individual project that enables users to explore and discover top-rated movies and TV shows. The app features a user-friendly interface and smooth functionality, providing an engaging browsing experience. Recognized for its intuitive design and seamless performance, entirely built and managed by me.",
-    status: "Done",
-    technologies: [
-      { icon: <FaReact />, name: "React Native" },
-      { icon: <IoLogoJavascript />, name: "JavaScript" },
-      { icon: <SiExpress />, name: "Express.js" },
-      { icon: <IoLogoFirebase />, name: "Firebase" },
-    ],
-    role: "the Fullstack Developer",
-    type: "Level 03 Mobile Application Project",
-  },
-  {
-    project_img: internify,
-    project_title: "Internify",
-    project_description:
-      "Web application that provides facility students to upload their CVs and apply for the internships",
-    status: "Done",
-    technologies: [
-      { icon: <RiNextjsFill />, name: "Next.js" },
-      { icon: <BiLogoPostgresql />, name: "PostgreSQl" },
-      { icon: <SiExpress />, name: "Node.js" },
-    ],
-    role: "a Frontend Developer",
-    type: "Internship Tracking System",
-  },
-  {
-    project_img: hw,
-    project_title: "Coco-Smoothie Maker",
-    project_description:
-      "Arduino project that allows to make fruit juice using coconut water automatically. It automates the full process of making smoothie. ",
-    status: "Done",
-    technologies: [
-      { icon: "Nema17 | ", name: "JavaScript" },
-      { icon: "DS3231 RTC Module | ", name: "TypeScript" },
-      { icon: "HC-SR04 Ultrasonic Sensor | ", name: "Next.js" },
-      { icon: "Water Level Sensor | ", name: "MongoDB" },
-      { icon: "12V DC Motor", name: "Node.js" },
-    ],
-    role: "the Leader",
-    type: "Level I Hardware Project",
-  },
-];
-
-export default function Projects() {
-  const theme = useTheme();
-  const [isVisible, setIsVisible] = useState(false);
-  const ref = useRef(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.unobserve(ref.current); // Stop observing after it's visible
-        }
-      },
-      { threshold: 0.1 } // Trigger when 10% of the section is visible
-    );
-
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
-
-    return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
-      }
-    };
-  }, []);
-
+export default function Projects({ projects = [] }) {
   return (
-    <Box
-      sx={{
-        width: "100%",
-        display: "flex",
-        flexDirection: "column",
-        backgroundColor: theme.palette.background.paper,
-        color: theme.palette.text.primary,
-        paddingTop: 10,
-        opacity: isVisible ? 1 : 0,
-        transition: "opacity 1s ease-out",
-      }}
-      ref={ref}
-    >
-      <Typography variant="h4" sx={{ textAlign: "center", fontWeight: 550 }}>
-        How is my Contribution
-      </Typography>
-
-      <Typography variant="h5" sx={{ marginBottom: 3 }}>
-        My{" "}
-        <span
-          style={{
-            color: "#4338ca",
-            fontFamily: "Forte",
-            fontWeight: 500,
-          }}
-        >
-          Projects
-        </span>
-      </Typography>
-
-      <Box
-        sx={{
-          maxWidth: "100%",
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "center",
-          flexWrap: "wrap",
-          gap: 8,
-          padding: 2,
-        }}
-      >
-        {ProjectData.map((project, index) => (
-          <SingleProject
-            project_img={project.project_img}
-            project_title={project.project_title}
-            project_description={project.project_description}
-            key={index}
-            style={{
-              animationDelay: `${index * 0.3}s`,
-              animation: isVisible ? `zoomIn 1s ease-out` : "none",
-            }} // Apply animation if visible
-            status={project.status}
-            type={project.type}
-            technologies={project.technologies}
-            role={project.role}
-          />
+    <Section id="projects" eyebrow="03 — Work" title="Selected projects">
+      <div className="grid md:grid-cols-2 gap-6">
+        {projects.map((p, idx) => (
+          <motion.div
+            key={p._id}
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.45, delay: idx * 0.06 }}
+            className="group rounded-2xl border border-border bg-surface overflow-hidden hover:border-accent transition-colors"
+          >
+            {p.coverImage && (
+              <div className="h-48 overflow-hidden">
+                <img
+                  src={urlFor(p.coverImage).width(800).height(450).url()}
+                  alt={p.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+            )}
+            <div className="p-6">
+              <h3 className="font-display text-xl font-semibold">{p.title}</h3>
+              <p className="text-textMuted text-sm mt-2 leading-relaxed">{p.summary}</p>
+              <div className="flex flex-wrap gap-2 mt-4">
+                {p.techUsed?.map((t) => (
+                  <span key={t} className="text-xs font-mono px-2 py-1 rounded-full bg-surfaceAlt text-accent">
+                    {t}
+                  </span>
+                ))}
+              </div>
+              <div className="flex gap-4 mt-5">
+                {p.githubUrl && (
+                  <a href={p.githubUrl} target="_blank" rel="noreferrer" className="flex items-center gap-1 text-sm text-textMuted hover:text-textPrimary">
+                    <FiGithub /> Code
+                  </a>
+                )}
+                {p.liveUrl && (
+                  <a href={p.liveUrl} target="_blank" rel="noreferrer" className="flex items-center gap-1 text-sm text-textMuted hover:text-textPrimary">
+                    <FiExternalLink /> Live
+                  </a>
+                )}
+              </div>
+            </div>
+          </motion.div>
         ))}
-      </Box>
-    </Box>
+      </div>
+    </Section>
   );
 }
