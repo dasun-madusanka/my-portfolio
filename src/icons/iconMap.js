@@ -42,9 +42,10 @@ import {
   SiCucumber,
   SiCloudflare,
   SiExpo,
-  SiSwagger
+  SiSwagger,
+  SiDotnet
 } from "react-icons/si";
-import { FaJava, FaAws, FaCss3Alt, FaNodeJs } from "react-icons/fa"; // FaCss3Alt added here
+import { FaJava, FaAws, FaCss3Alt, FaNodeJs, FaAngular } from "react-icons/fa"; // FaCss3Alt added here
 import { TbBrandCSharp } from "react-icons/tb";
 import { AiFillOpenAI } from "react-icons/ai";
 import { DiGoogleCloudPlatform } from "react-icons/di";
@@ -103,5 +104,7 @@ export const iconMap = {
   serenitybdd: GiCycle,
   cloudflare: SiCloudflare,
   expo: SiExpo,
-  swagger: SiSwagger
+  swagger: SiSwagger,
+  dotnet: SiDotnet,
+  angular: FaAngular
 };
